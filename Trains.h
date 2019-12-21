@@ -7,13 +7,14 @@
 
 class Trains {
 private:
-    int initialPos;
-    int currentPos;
-    Track associatedTrack;
-    std::thread circulate;
+    int m_initialPos;
+    int m_currentPos;
+    Track m_associatedTrack;
+    std::thread m_circulate;
 
 public:
     Trains();
+    Trains(int initialPos, Track associatedTrack);
 };
 
 #endif /* TRAINS_H */

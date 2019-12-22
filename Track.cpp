@@ -16,6 +16,14 @@ Track::Track(int trackLength, Cell fStation, Cell sStation, Cell tStation, int f
     // Forgive me Allah for what i'm about to do ...
     //
     // TODO: Fill this up
+    //
+    for (int i = 0; i < trackLength; ++i) {
+        if (!(i== fLocation || i == sLocation || i == tLocation)) { // As long as we're not in the stations locations
+            m_actualTrack[i] = new Cell(CellType::CELL); // We'll create a new regular Cell
+            // If dynamic allocation causes a problem i think i'll switch to declaring m_actualTrack as a vector of `Cell`s
+            // Then modify the constructor to make the regular cellType the default
+        }
+    }
 }
 
 /* 2}}} */

@@ -4,7 +4,7 @@
 #include <Train.h>
 
 /* Constructors {{{1 */
- /* DEFAULT CONSTRUCTOR {{{2 */
+/* DEFAULT CONSTRUCTOR {{{2 */
 Track::Track()
 {
     std::cout << "Call ought never to happen" << std::endl;

@@ -7,6 +7,7 @@
 
 class Trains {
 private:
+    std::string m_trainName;
     int m_initialPos;
     int m_currentPos;
     Track m_associatedTrack;
@@ -14,7 +15,7 @@ private:
 
 public:
     Trains();
-    Trains(int initialPos, Track associatedTrack);
+    Trains(int initialPos, Track associatedTrack, std::string trainName);
 };
 
 #endif /* TRAINS_H */

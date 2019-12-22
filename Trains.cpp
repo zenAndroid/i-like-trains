@@ -10,7 +10,7 @@ Trains::Trains(){
     std::cout << "Train constructor with no parameters" << std::endl;
 }
 
-Trains::Trains(int initialPos, Track associatedTrack){
+Trains::Trains(int initialPos, Track associatedTrack, std::string trainName){
     m_initialPos = initialPos; // Init
     // And since, at the time of construction
     // the `current` position of the train is also
@@ -22,6 +22,8 @@ Trains::Trains(int initialPos, Track associatedTrack){
     // Associate track
     m_associatedTrack = associatedTrack;
 
+
+    m_trainName = trainName; // in this very instructive (and very helpful) comment i tell you that this line of elegant code initializes the string field called m_trainName with the string value trainName :)
 
     // Still need to know what to do to set up the threading stuff
     // Fucking Java trying to infect me ...

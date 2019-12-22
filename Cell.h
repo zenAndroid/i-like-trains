@@ -9,12 +9,12 @@ enum class CellType { CELL, STATION };
 class Cell
 {
 private:
-    CellType type;
-    std::mutex cellKey;
+    CellType m_type;
+    std::mutex m_cellKey;
 public:
     Cell();
     Cell(CellType _type);
-    bool getCellType();
+    CellType getCellType();
     void enter();
     void leave();
 };

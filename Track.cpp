@@ -23,6 +23,12 @@ Track::Track(int trackLength, Cell fStation, Cell sStation, Cell tStation, int f
             // If dynamic allocation causes a problem i think i'll switch to declaring m_actualTrack as a vector of `Cell`s
             // Then modify the constructor to make the regular cellType the default
         }
+
+        // Now for initializing the stations.
+        
+        m_actualTrack[fLocation] = new Cell(CellType::STATION);
+        m_actualTrack[sLocation] = new Cell(CellType::STATION);
+        m_actualTrack[tLocation] = new Cell(CellType::STATION);
     }
 }
 

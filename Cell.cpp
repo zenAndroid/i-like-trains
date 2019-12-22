@@ -8,6 +8,7 @@
 /* DEFAULT CONSTRUCTOR {{{2 */
 Cell::Cell(){
     std::cout << "Cell's empty constructor ought not be called, something is wrong" << std::endl;
+    exit(1);
 }
 /* 2}}} */
 
@@ -30,7 +31,7 @@ CellType Cell::getCellType()
     return m_type;
 }
 
-void Cell::enter() // ITS GODDAMN 00:48 AND I CANT HELP BUT READ THIS AS CALL CENTER I THINK IM GOING TO SLEEP BAI
+void Cell::enter()
 {
     static std::mutex enterMutex;
     {
@@ -40,7 +41,7 @@ void Cell::enter() // ITS GODDAMN 00:48 AND I CANT HELP BUT READ THIS AS CALL CE
         } else {
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
-    } // If my understanding is correct, then after this 'line' is executed, the scoped lock is destroyed and the mutex is released.
+    } // If my understanding is correct, then after this 'line' is executed, the scoped lock is destroyed and the mutex is released, and so therefore another thread can acces this scope.
 }
 
 void Cell::leave()

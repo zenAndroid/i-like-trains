@@ -35,10 +35,10 @@ void Cell::enter() // ITS GODDAMN 00:48 AND I CANT HELP BUT READ THIS AS CALL CE
     static std::mutex enterMutex;
     {
         std::scoped_lock<std::mutex> lock(enterMutex);
-        if (getCellType() == Cell::STATION) {
-            std::this_thread::sleep_for(1s);
+        if (getCellType() == CellType::STATION) {
+            std::this_thread::sleep_for(std::chrono::seconds(1));
         } else {
-            std::this_thread::sleep_for(20us);
+            std::this_thread::sleep_for(std::chrono::milliseconds(20));
         }
     } // If my understanding is correct, then after this 'line' is executed, the scoped lock is destroyed and the mutex is released.
 }

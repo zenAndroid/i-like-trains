@@ -32,7 +32,6 @@ CellType Cell::getCellType()
 
 void Cell::enter() // ITS GODDAMN 00:48 AND I CANT HELP BUT READ THIS AS CALL CENTER I THINK IM GOING TO SLEEP BAI
 {
-    // TODO : I have no idea how to implement this :)
     static std::mutex enterMutex;
     {
         std::scoped_lock<std::mutex> lock(enterMutex);
@@ -40,7 +39,6 @@ void Cell::enter() // ITS GODDAMN 00:48 AND I CANT HELP BUT READ THIS AS CALL CE
             std::this_thread::sleep_for(1s);
         } else {
             std::this_thread::sleep_for(20us);
-            // TODO : Sleep for 20 microseconds
         }
     } // If my understanding is correct, then after this 'line' is executed, the scoped lock is destroyed and the mutex is released.
 }

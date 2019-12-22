@@ -1,5 +1,6 @@
-#include <Trains.h>
-#include <Track.h>
+#include "Track.h"
+#include "Trains.h"
+#include "Cell.h"
 #include <iostream>
 #include <thread>
 
@@ -9,7 +10,7 @@ Trains::Trains(){
     std::cout << "Train constructor with no parameters" << std::endl;
 }
 
-Train::Train(int initialPos, Track associatedTrack){
+Trains::Trains(int initialPos, Track associatedTrack){
     m_initialPos = initialPos; // Init
     // And since, at the time of construction
     // the `current` position of the train is also

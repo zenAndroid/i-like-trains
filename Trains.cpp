@@ -8,6 +8,7 @@
 Trains::Trains(){
     std::cout << "Something ain't right" << std::endl;
     std::cout << "Train constructor with no parameters" << std::endl;
+    exit(1);
 }
 
 Trains::Trains(int initialPos, Track associatedTrack, std::string trainName){
@@ -30,4 +31,12 @@ Trains::Trains(int initialPos, Track associatedTrack, std::string trainName){
     //
 }
 
+void Trains::circulate(){ // Function that is supposed to run in a thread of some sort, i fucking hate sepples already god i can see the reference confusion aaaAAAAaaAAA
+    while(1){
+        // TODO : something
+        // Need to calculate the next position the traon os going to take.
+        m_currentPos = (m_currentPos + 1) % (m_associatedTrack.m_trackLength);
+        m_associatedTrack.m_actualTrack[m_currentPos];
+    }
+}
 /* 1}}} */

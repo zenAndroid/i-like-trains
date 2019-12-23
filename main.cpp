@@ -16,6 +16,11 @@ int main(int argc, char *argv[])
     Cell sStation(CellType::STATION); // And so on ...
     Cell tStation(CellType::STATION);
 
+
+    Track tracka(15,std::ref(fStation),sStation,tStation,2,5,7);
+    Track trackb(35,fStation,sStation,tStation,5,9,17);
+    Track trackc(15,fStation,sStation,tStation,1,11,14);
+
     std::cout << (int)fStation.getCellType() << std::endl;
     return 0;
 }

@@ -7,8 +7,7 @@
 /* CONSTRUCTORS {{{1 */
 /* DEFAULT CONSTRUCTOR {{{2 */
 Cell::Cell(){
-    std::cout << "Cell's empty constructor ought not be called, something is wrong" << std::endl;
-    exit(1);
+    m_type = CellType::CELL;
 }
 /* 2}}} */
 
@@ -40,8 +39,15 @@ void Cell::enter()
             std::this_thread::sleep_for(std::chrono::seconds(1));
         } else {
             std::this_thread::sleep_for(std::chrono::milliseconds(20));
+            // This is not verbose :)
+            // Not in the least.
         }
     } // If my understanding is correct, then after this 'line' is executed, the scoped lock is destroyed and the mutex is released, and so therefore another thread can acces this scope.
+}
+
+void Cell::promoteCell()
+{
+    m_type = CellType::STATION;
 }
 
 void Cell::leave()

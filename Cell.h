@@ -9,12 +9,12 @@ enum class CellType { CELL = 1 , STATION };
 
 class Cell
 {
-private:
+public:
     std::string m_cellName; // Guess
     CellType m_type;
     // Mutex protecting the *specific instance* of the cell.
     std::mutex* m_cellKey;
-public:
+    // ----------------------------- //
     Cell();
     Cell(CellType _type, std::string cellName);
     CellType getCellType();

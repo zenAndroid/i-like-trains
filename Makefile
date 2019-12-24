@@ -26,3 +26,6 @@ $(MAIN): $(OBJS)
 
 clean: 
 	rm *.o train
+
+view:
+	vim Makefile

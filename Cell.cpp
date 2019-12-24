@@ -35,7 +35,7 @@ CellType Cell::getCellType()
 void Cell::enter()
 {
     {
-        std::scoped_lock<std::mutex> lock(*m_cellKey);
+        std::lock_guard<std::mutex> lock(*m_cellKey);
         // Reasoning, in the program, when a train will call this Cell's enter function
         // it'll lock the mutex and run the crtical section (ie it'll sleep in this case) and no other thread 
         // can do the same thing *while* holding the key to this cell.

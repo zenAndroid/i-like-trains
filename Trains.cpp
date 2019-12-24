@@ -11,7 +11,7 @@ Trains::Trains(){
     exit(1);
 }
 
-Trains::Trains(int initialPos, Track associatedTrack, std::string trainName){
+Trains::Trains(int initialPos, Track * associatedTrack, std::string trainName){
     m_initialPos = initialPos; // Init
     // And since, at the time of construction
     // the `current` position of the train is also
@@ -35,8 +35,8 @@ void Trains::circulate(){ // Function that is supposed to run in a thread of som
     while(1){
         // TODO : something
         // Need to calculate the next position the traon os going to take.
-        m_currentPos = (m_currentPos + 1) % (m_associatedTrack.m_trackLength);
-        m_associatedTrack.m_actualTrack[m_currentPos];
+        m_currentPos = (m_currentPos + 1) % (m_associatedTrack->m_trackLength);
+        m_associatedTrack->m_actualTrack[m_currentPos];
     }
 }
 /* 1}}} */

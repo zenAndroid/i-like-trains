@@ -12,9 +12,9 @@ int main(int argc, char *argv[])
     // Then the trains
     // then i imagine you just kinda start all the trains ?
 
-    Cell fStation(CellType::STATION); // First station = fStation
-    Cell sStation(CellType::STATION); // And so on ...
-    Cell tStation(CellType::STATION);
+    Cell fStation(CellType::STATION,"f"); // First station = fStation
+    Cell sStation(CellType::STATION,"s"); // And so on ...
+    Cell tStation(CellType::STATION,"t");
 
 
     Track tracka(15,std::ref(fStation),sStation,tStation,2,5,7);

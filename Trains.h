@@ -5,8 +5,8 @@
 #include <iostream>
 #include "Track.h"
 
-class Trains {
-
+class Trains
+{
 public:
     std::string m_trainName;
     int m_initialPos;
@@ -15,7 +15,8 @@ public:
     std::thread m_circulate;
     // -------------------------------------------------- //
     Trains();
-    Trains(int initialPos, Track * associatedTrack, std::string trainName);
+    ~Trains();
+    Trains(int, Track *, std::string);
     void circulate();
 };
 

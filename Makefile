@@ -1,5 +1,5 @@
 CC = g++
-CFLAGS = -Wall -std=c++17 -g
+CFLAGS = -Wall -std=c++17 -g -pthread
 
 
 SRCS = Track.cpp Cell.cpp Trains.cpp main.cpp
@@ -27,5 +27,5 @@ $(MAIN): $(OBJS)
 clean: 
 	rm *.o train
 
-view:
+v:
 	vim Makefile

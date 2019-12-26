@@ -6,7 +6,8 @@
 
 /* CONSTRUCTORS {{{1 */
 /* DEFAULT CONSTRUCTOR {{{2 */
-Cell::Cell(){
+Cell::Cell()
+{
     m_type = CellType::CELL;
     m_cellKey = new std::mutex();
 }
@@ -14,7 +15,8 @@ Cell::Cell(){
 
 /* Sensible constructor {{{2 */
 
-Cell::Cell(CellType type, std::string cellName){
+Cell::Cell(CellType type, std::string cellName)
+{
     m_type = type;
     // TODO: probably need to initialze the mutex?
     m_cellKey = new std::mutex();
@@ -43,9 +45,9 @@ void Cell::enter()
         // bullshit i ran into when i tried to make the sensible-seeming decision to make a mutex a field in a class
         // but apparently that's not how things work in sepples, go figure ...
         if (getCellType() == CellType::STATION) {
-            std::this_thread::sleep_for(std::chrono::seconds(1));
+            std::this_thread::sleep_for(std::chrono::seconds(2));
         } else {
-            std::this_thread::sleep_for(std::chrono::milliseconds(20));
+            std::this_thread::sleep_for(std::chrono::milliseconds(750));
             // This is not verbose :)
             // Not in the least.
         }

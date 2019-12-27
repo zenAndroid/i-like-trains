@@ -1,6 +1,6 @@
 #include <iostream>
 #include "Track.h"
-#include "Trains.h"
+#include "Train.h"
 #include "Cell.h"
 
 
@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
     Track trackb(35,fStation,sStation,tStation,5,9,17);
     Track trackc(15,fStation,sStation,tStation,1,11,14);
 
-    Trains firstToot(2,&tracka,"First train");
+    Train firstToot(2,&tracka,"First train");
 
     std::cout << (int)fStation.getCellType() << std::endl;
     return 0;

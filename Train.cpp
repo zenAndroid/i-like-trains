@@ -1,18 +1,18 @@
 #include "Track.h"
-#include "Trains.h"
+#include "Train.h"
 #include "Cell.h"
 #include <iostream>
 #include <thread>
 
 /* Constructors {{{1 */
-Trains::Trains()
+Train::Train()
 {
     std::cout << "Something ain't right" << std::endl;
     std::cout << "Train constructor with no parameters" << std::endl;
     exit(1);
 }
 
-Trains::Trains(int initialPos, Track * associatedTrack, std::string trainName)
+Train::Train(int initialPos, Track * associatedTrack, std::string trainName)
 {
     m_initialPos = initialPos; // Init
     // And since, at the time of construction
@@ -32,13 +32,13 @@ Trains::Trains(int initialPos, Track * associatedTrack, std::string trainName)
     // Still need to know what to do to set up the threading stuff
     // Fucking Java trying to infect me ...
     //
-    m_circulate = std::thread(&Trains::circulate,this);
+    m_circulate = std::thread(&Train::circulate,this);
 
     // As per https://stackoverflow.com/questions/29814233/how-to-use-stdthread
     // Please be right!
 }
 
-Trains::~Trains()
+Train::~Train()
 {
     if (m_circulate.joinable()) {
         m_circulate.join();
@@ -52,7 +52,7 @@ Trains::~Trains()
 
 /* Member functions {{{1 */
 
-void Trains::circulate()
+void Train::circulate()
 { // Function that is supposed to run in a thread of some sort, i f*cking hate c++ already god i can see the reference confusion aaaAAAAaaAAA
     while(1){
         // TODO : something

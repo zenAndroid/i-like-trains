@@ -5,7 +5,7 @@
 #include <iostream>
 #include "Track.h"
 
-class Trains
+class Train
 {
 public:
     std::string m_trainName;
@@ -14,9 +14,9 @@ public:
     Track * m_associatedTrack; // Declaring this as a pointer makes me feel like i might make this harder for me than is necessary
     std::thread m_circulate;
     // -------------------------------------------------- //
-    Trains();
-    ~Trains();
-    Trains(int, Track *, std::string);
+    Train();
+    ~Train();
+    Train(int, Track *, std::string);
     void circulate();
 };
 

@@ -63,9 +63,9 @@ void Trains::circulate()
         // until i grasp how i can do stuff like Cell = [that statement]; without hecking myself up
         //
         // ... Let me think
-        m_associatedTrack->m_actualTrack[m_currentPos].enter();
+        m_associatedTrack->m_actualTrack[m_currentPos].enter(m_trainName);
         // Presumably enters the cell
-        m_associatedTrack->m_actualTrack[m_currentPos].leave();
+        m_associatedTrack->m_actualTrack[m_currentPos].leave(m_trainName);
     }
 }
 

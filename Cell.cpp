@@ -33,8 +33,8 @@ CellType Cell::getCellType()
 {
     return m_type;
 }
-
-void Cell::enter()
+// enteringTrain := The train that is going to enter this cell
+void Cell::enter(std::string enteringTrain)
 {
     {
         std::lock_guard<std::mutex> lock(*m_cellKey);
@@ -46,6 +46,7 @@ void Cell::enter()
         // but apparently that's not how things work in sepples, go figure ...
         if (getCellType() == CellType::STATION) {
             std::this_thread::sleep_for(std::chrono::seconds(2));
+            std::cout << enteringTrain << "entered this Station" << '\n';
         } else {
             std::this_thread::sleep_for(std::chrono::milliseconds(750));
             // This is not verbose :)
@@ -54,9 +55,16 @@ void Cell::enter()
     }
 }
 
-void Cell::leave()
+void Cell::leave(std::string leavingTrain)
 {
     // TODO : I have no idea how to implement this :)
+        if (getCellType() == CellType::STATION) {
+            std::cout << leavingTrain << "is leaving this Station" << '\n';
+        } else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(750));
+            // This is not verbose :)
+            // Not in the least.
+        }
 }
 
 void Cell::promoteCell(std::string cellName)

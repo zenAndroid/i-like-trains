@@ -17,9 +17,11 @@ int main(int argc, char *argv[])
     Cell tStation(CellType::STATION,"t");
 
 
-    Track tracka(15,std::ref(fStation),sStation,tStation,2,5,7);
+    Track tracka(15,fStation,sStation,tStation,2,5,7);
     Track trackb(35,fStation,sStation,tStation,5,9,17);
     Track trackc(15,fStation,sStation,tStation,1,11,14);
+
+    Trains firstToot(2,&tracka,"First train");
 
     std::cout << (int)fStation.getCellType() << std::endl;
     return 0;

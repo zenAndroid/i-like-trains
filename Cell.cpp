@@ -3,6 +3,7 @@
 #include "Train.h"
 #include <iostream>
 #include <mutex>
+#include <chrono>
 
 /* CONSTRUCTORS {{{1 */
 /* DEFAULT CONSTRUCTOR {{{2 */
@@ -15,12 +16,11 @@ Cell::Cell()
 
 /* Sensible constructor {{{2 */
 
-Cell::Cell(CellType type, std::string cellName)
+Cell::Cell(CellType type)
 {
     m_type = type;
     // TODO: probably need to initialze the mutex?
     m_cellKey = new std::mutex();
-    m_cellName = cellName;
 }
 
 /* 2}}} */
@@ -31,6 +31,9 @@ Cell::Cell(CellType type, std::string cellName)
 // enteringTrain := The train that is going to enter this cell
 void Cell::enter(std::string enteringTrain)
 {
+    if (m_type == CellType::STATION) {
+        std::cout << enteringTrain << " attempting to enter into " << m_cellName << "!\n";
+    }
     {
         std::lock_guard<std::mutex> lock(*m_cellKey);
         // Reasoning, in the program, when a train will call this Cell's enter function
@@ -53,11 +56,9 @@ void Cell::enter(std::string enteringTrain)
 
 void Cell::leave(std::string leavingTrain)
 {
-    // TODO : I have no idea how to implement this :)
-        if (m_type == CellType::STATION) {
+    if (m_type == CellType::STATION) {
             std::cout << leavingTrain << " is leaving " << m_cellName << "!\n";
-        } else {
-        }
+    }
 }
 
 void Cell::promoteCell(std::string cellName)

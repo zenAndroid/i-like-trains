@@ -16,7 +16,7 @@ public:
     std::mutex* m_cellKey;
     // ----------------------------- //
     Cell();
-    Cell(CellType, std::string);
+    Cell(CellType);
     void promoteCell(std::string); // Upgrading a cell to station level.
     void enter(std::string); // Enter and leave this cell.
     void leave(std::string);

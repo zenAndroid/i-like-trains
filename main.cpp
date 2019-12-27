@@ -1,3 +1,4 @@
+#include "tick.h"
 #include <iostream>
 #include "Track.h"
 #include "Train.h"

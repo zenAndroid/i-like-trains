@@ -2,7 +2,7 @@ CC = g++
 CFLAGS = -Wall -std=c++17 -g -pthread
 
 
-SRCS = Track.cpp Cell.cpp Train.cpp main.cpp
+SRCS = Track.cpp Cell.cpp Train.cpp main.cpp tick.cpp
 
 
 OBJS = $(SRCS:.cpp=.o)

@@ -1,3 +1,4 @@
+#include "tick.h"
 #include "Cell.h"
 #include "Track.h"
 #include "Train.h"
@@ -32,7 +33,7 @@ Cell::Cell(CellType type)
 void Cell::enter(std::string enteringTrain)
 {
     if (m_type == CellType::STATION) {
-        std::cout << enteringTrain << " attempting to enter into " << m_cellName << "!\n";
+        std::cout << enteringTrain << " attempting to enter into " << m_cellName << " at SysTick " << WannaBeSysTick++ << "!\n";
     }
     {
         std::lock_guard<std::mutex> lock(*m_cellKey);

@@ -7,8 +7,8 @@
 /* Constructors {{{1 */
 Train::Train()
 {
-    std::cout << "Something ain't right" << std::endl;
-    std::cout << "Train constructor with no parameters" << std::endl;
+    std::cout << "Something ain't right" << '\n';
+    std::cout << "Train constructor with no parameters" << '\n';
     exit(1);
 }
 
@@ -44,7 +44,7 @@ Train::~Train()
         m_circulate.join();
     }
     else {
-        std::cout << "Doot doot little bitch" << std::endl;
+        std::cout << "Doot doot little bitch" << '\n';
     }
 }
 

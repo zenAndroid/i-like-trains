@@ -23,6 +23,6 @@ int main(int argc, char *argv[])
 
     Train firstToot(2,&tracka,"First train");
 
-    std::cout << (int)fStation.getCellType() << std::endl;
+    std::cout << (int)fStation.m_type << std::endl;
     return 0;
 }

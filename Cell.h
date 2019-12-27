@@ -17,7 +17,6 @@ public:
     // ----------------------------- //
     Cell();
     Cell(CellType, std::string);
-    CellType getCellType();
     void promoteCell(std::string); // Upgrading a cell to station level.
     void enter(std::string); // Enter and leave this cell.
     void leave(std::string);

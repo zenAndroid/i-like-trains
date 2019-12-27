@@ -26,13 +26,8 @@ Cell::Cell(CellType type, std::string cellName)
 /* 2}}} */
 /* 1}}} */
 
-
 /* Member functions {{{1 */
 
-CellType Cell::getCellType()
-{
-    return m_type;
-}
 // enteringTrain := The train that is going to enter this cell
 void Cell::enter(std::string enteringTrain)
 {
@@ -44,10 +39,11 @@ void Cell::enter(std::string enteringTrain)
         // Maybe i'm right, maybe not, i'm kinda afraid i'll run into the same non-copyable/non-movable
         // bullshit i ran into when i tried to make the sensible-seeming decision to make a mutex a field in a class
         // but apparently that's not how things work in sepples, go figure ...
-        if (getCellType() == CellType::STATION) {
+        if (m_type == CellType::STATION) {
+            std::cout << enteringTrain << " entered station " << m_cellName << " !\n";
             std::this_thread::sleep_for(std::chrono::seconds(2));
-            std::cout << enteringTrain << "entered this Station" << '\n';
         } else {
+            // If this is a cell, then we don't really announce anything so we just sleep ...
             std::this_thread::sleep_for(std::chrono::milliseconds(750));
             // This is not verbose :)
             // Not in the least.
@@ -58,12 +54,9 @@ void Cell::enter(std::string enteringTrain)
 void Cell::leave(std::string leavingTrain)
 {
     // TODO : I have no idea how to implement this :)
-        if (getCellType() == CellType::STATION) {
-            std::cout << leavingTrain << "is leaving this Station" << '\n';
+        if (m_type == CellType::STATION) {
+            std::cout << leavingTrain << " is leaving " << m_cellName << "!\n";
         } else {
-            std::this_thread::sleep_for(std::chrono::milliseconds(750));
-            // This is not verbose :)
-            // Not in the least.
         }
 }
 

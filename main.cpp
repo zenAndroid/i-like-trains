@@ -22,12 +22,12 @@ int main(int argc, char *argv[])
     Track trackb(35,fStation,sStation,tStation,5,9,17);
     Track trackc(15,fStation,sStation,tStation,1,11,14);
 
-    Train first  ( 2,&tracka,"train #1");
-    Train second ( 5,&tracka,"train #2");
-    Train third  ( 5,&trackb,"train #3");
-    Train fourth ( 1,&trackb,"train #4");
-    Train fifth  ( 5,&trackb,"train #5");
-    Train sixth  ( 1,&trackc,"train #6");
+    Train first  (2,&tracka,"train #1");
+    Train second (5,&tracka,"train #2");
+    Train third  (5,&trackb,"train #3");
+    Train fourth (1,&trackb,"train #4");
+    Train fifth  (5,&trackb,"train #5");
+    Train sixth  (1,&trackc,"train #6");
 
     return 0;
 }

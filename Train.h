@@ -5,8 +5,7 @@
 #include <iostream>
 #include "Track.h"
 
-class Train
-{
+class Train {
 public:
     std::string m_trainName;
     int m_initialPos;

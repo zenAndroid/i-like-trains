@@ -7,8 +7,7 @@
  */
 enum class CellType { CELL = 1 , STATION };
 
-class Cell
-{
+class Cell {
 public:
     std::string m_cellName; // Guess
     CellType m_type;

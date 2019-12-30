@@ -1,20 +1,21 @@
+// {{{ - Includes
 #include "tick.h"
 #include "Track.h"
 #include "Train.h"
 #include "Cell.h"
 #include <iostream>
 #include <thread>
+// }}}
 
 /* Constructors {{{1 */
-Train::Train()
-{
+
+Train::Train() { // {{{2
     std::cout << "Something ain't right" << '\n';
     std::cout << "Train constructor with no parameters" << '\n';
     exit(1);
-}
+} // 2}}}
 
-Train::Train(int initialPos, Track * associatedTrack, std::string trainName)
-{
+Train::Train(int initialPos, Track * associatedTrack, std::string trainName) { // {{{2
     m_initialPos = initialPos; // Init
     // And since, at the time of construction
     // the `current` position of the train is also
@@ -37,24 +38,22 @@ Train::Train(int initialPos, Track * associatedTrack, std::string trainName)
 
     // As per https://stackoverflow.com/questions/29814233/how-to-use-stdthread
     // Please be right!
-}
+} // 2}}}
 
-Train::~Train()
-{
+Train::~Train() { // {{{2
     if (m_circulate.joinable()) {
         m_circulate.join();
     }
     else {
         std::cout << "Doot doot little bitch" << '\n';
     }
-}
+} // 2}}}
 
 /* 1}}} */
 
 /* Member functions {{{1 */
 
-void Train::circulate()
-{ // Function that is supposed to run in a thread of some sort, i f*cking hate c++ already god i can see the reference confusion aaaAAAAaaAAA
+void Train::circulate() { // {{{2 The functionality of the thread spawned by the instance of the class
     while(1){
         // TODO : something
         // Need to calculate the next position the train is going to take.
@@ -68,6 +67,6 @@ void Train::circulate()
         // Presumably enters the cell
         m_associatedTrack->m_actualTrack[m_currentPos].leave(m_trainName);
     }
-}
+} // 2}}} 
 
 /* 1}}} */

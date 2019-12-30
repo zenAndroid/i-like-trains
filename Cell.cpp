@@ -1,3 +1,5 @@
+// {{{ Includes
+
 #include "tick.h"
 #include "Cell.h"
 #include "Track.h"
@@ -6,32 +8,27 @@
 #include <mutex>
 #include <chrono>
 
+// }}}
+
 /* CONSTRUCTORS {{{1 */
-/* DEFAULT CONSTRUCTOR {{{2 */
-Cell::Cell()
-{
+
+Cell::Cell() { /* {{{2 */
     m_type = CellType::CELL;
     m_cellKey = new std::mutex();
-}
-/* 2}}} */
+} /* 2}}} */
 
-/* Sensible constructor {{{2 */
-
-Cell::Cell(CellType type)
-{
+Cell::Cell(CellType type) {/*{{{2*/
     m_type = type;
     // TODO: probably need to initialze the mutex?
     m_cellKey = new std::mutex();
-}
+}/*2}}}*/
 
-/* 2}}} */
 /* 1}}} */
 
 /* Member functions {{{1 */
 
 // enteringTrain := The train that is going to enter this cell
-void Cell::enter(std::string enteringTrain)
-{
+void Cell::enter(std::string enteringTrain) { /* {{{2 */
     if (m_type == CellType::STATION) {
         std::cout << enteringTrain << " attempting to enter into " << m_cellName << " at SysTick " << WannaBeSysTick++ << "!\n";
     }
@@ -53,19 +50,17 @@ void Cell::enter(std::string enteringTrain)
             // Not in the least.
         }
     }
-}
+} /* 2}}}*/
 
-void Cell::leave(std::string leavingTrain)
-{
+void Cell::leave(std::string leavingTrain) { /* {{{2 */
     if (m_type == CellType::STATION) {
             std::cout << leavingTrain << " is leaving " << m_cellName << "!\n";
     }
-}
+} /* 2}}}*/
 
-void Cell::promoteCell(std::string cellName)
-{
+void Cell::promoteCell(std::string cellName) { /* {{{2 */
     m_type = CellType::STATION;
     m_cellName = cellName;
-}
+} /* 2}}}*/
 
 /* 1}}} */

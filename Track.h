@@ -4,8 +4,7 @@
 #include <vector>
 #include "Cell.h"
 
-class Track
-{
+class Track {
 public:
     int m_trackLength;
     std::vector<Cell> m_actualTrack; // 2019-12-22 15:05 zenAndroid -- Just decided to turn this into a Cell-pointers vector

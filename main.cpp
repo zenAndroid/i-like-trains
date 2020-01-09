@@ -8,11 +8,6 @@
 
 int main(int argc, char *argv[]) {
 
-    // I guess the Cell_Stations should be declared first
-    // Then the tracks
-    // Then the trains
-    // then i imagine you just kinda start all the trains ?
-
     Cell fStation(CellType::STATION); // First station = fStation
     Cell sStation(CellType::STATION); // And so on ...
     Cell tStation(CellType::STATION);

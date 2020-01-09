@@ -19,7 +19,6 @@ Cell::Cell() { /* {{{2 */
 
 Cell::Cell(CellType type) {/*{{{2*/
     m_type = type;
-    // TODO: probably need to initialze the mutex?
     m_cellKey = new std::mutex();
 }/*2}}}*/
 
@@ -54,7 +53,7 @@ void Cell::enter(std::string enteringTrain) { /* {{{2 */
 
 void Cell::leave(std::string leavingTrain) { /* {{{2 */
     if (m_type == CellType::STATION) {
-            std::cout << leavingTrain << " is leaving " << m_cellName << "!\n";
+            std::cout << leavingTrain << " is leaving " << m_cellName << " at Systick " <<  WannaBeSysTick << "!\n";
     }
 } /* 2}}}*/
 
